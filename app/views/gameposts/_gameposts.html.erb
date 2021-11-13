@@ -1,0 +1,45 @@
+<% if gameposts.any? %>
+  <ul class="list-unstyled mt-2">
+     <% gameposts.each do |gamepost| %>
+     <li class="d-flex">
+        
+       
+          <div class="m-2 text-dark"><h4>タイトル</h4>
+            <p><%= link_to gamepost.title %></p>
+          </div>
+                
+          <div class="m-2 text-dark "><h4>開発元</h4>
+            <p><%= gamepost.developer %></p>
+          </div>
+         <div class="m-2 text-dark "><h4>販売元</h4>
+           <p><%= gamepost.distributor %></p>
+         </div>
+               
+          <div class="m-2 text-dark "><h4>プラットフォーム</h4>
+               <p><%= gamepost.platform %></p>
+           </div>
+                 
+            <div class="m-2 text-dark "><h4>発売日</h4>
+                <p><%= gamepost.releasedate %></p>
+            </div>
+                     
+             <div class="m-2 text-dark "><h4>プレイした日</h4>
+               <p><%= gamepost.playdate %></p>
+              </div>
+                     
+              <div class="m-2 text-dark "><h4>登録日</h4>
+                <p><%= gamepost.registrationdate %></p>
+              </div>
+                                    
+              <div class="m-2 text-dark "><h4>更新日</h4>
+                <p><%= gamepost.updatedate %></p>
+              </div>
+            <div>
+             <%= link_to "削除", @gamepost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger m-2  w-40" %>
+            </div>
+       
+     </li>
+     <% end %>
+  </ul>
+  
+<% end %>

@@ -1,0 +1,17 @@
+ja:
+    activerecord:
+     models:
+      user: ユーザー
+    attributes:
+      user:
+      Email: メールアドレス
+      Password: パスワード
+      password_confirmation: 確認
+      title: タイトル
+      developer: 開発元
+      distributor: 発売元
+      platform: プラットフォーム
+      releasedate: 発売日
+      playdate: プレイした日
+      registrationdate: 登録日
+      updatedate: 更新日
