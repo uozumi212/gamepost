@@ -1,11 +1,19 @@
-<h1>メッセージ詳細ページ</h1>
-
- <%= form_for @gamepost do |f| %>
- <%= render 'gameposts/gameposts', gameposts: @gameposts %>
-          <div class="mb-3">
+<div class="text-center">
+  <h1>編集ページ</h1>
+          
+   
+            
+  <div class="row">
+    <div class="col-sm-4 offset-sm-4" >
+      
+         <%= form_for(@gamepost) do |f| %>
+       <%= render "layouts/error_messages", model: f.object %>
+        
+        　<div class="mb-2">
             <%= f.label :title, 'タイトル' %>
             <%= f.text_field :title, class: 'form-control' %>
           </div>
+          
           <div class="mb-3">
             <%= f.label :developer, '開発元' %>
             <%= f.text_field :developer, class: 'form-control' %>
@@ -16,10 +24,13 @@
             <%= f.text_field :distributor, class: 'form-control' %>
           </div>
           
-           <div class="mb-3">
+           <div class="mb-1">
             <%= f.label :platform, 'プラットフォーム' %>
-            <%= f.text_field :platform, class: 'form-control' %>
-          </div>
+            </div>
+            
+            <div class="mb-3">
+             <%= f.select :platform, [["SP", "SP"],["PC", "PC"],[ "Switch", "Switch"],["XBOX", "XBOX"],["PS4", "PS4"]], class: 'form-control' %>
+            </div>
           
            <div class="mb-3">
             <%= f.label :releasedate, '発売日' %>
@@ -40,4 +51,10 @@
             <%= f.label :updatedate, '更新日' %>
             <%= f.text_field :updatedate, class: 'form-control' %>
           </div>
-          
+          <div class="text-center">
+             <%= f.submit "編集", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+     </div>
+   </div>
+</div>        

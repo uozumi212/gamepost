@@ -1,20 +1,20 @@
 <div class="text-center">
    <h1>投稿ページ</h1>
-     
+    
    <div class="row">
-     <div class="col-sm-6 offset-sm-3" >
+     <div class="col-sm-4 offset-sm-4 " >
        
           <%= form_with(model: @gamepost) do |f| %>
           <%= render "layouts/error_messages", model: f.object %>
          
           <div class="mb-3">
             <%= f.label :title, 'タイトル' %>
-            <%= f.text_field :title, class: 'form-control' %>
+            <%= f.text_field :title, class: 'form-control'%>
           </div>
           
           <div class="mb-3">
             <%= f.label :developer, '開発元' %>
-            <%= f.text_field :developer, class: 'form-control' %>
+            <%= f.text_field :developer, class: 'form-control'%>
           </div>
           
            <div class="mb-3">
@@ -22,29 +22,31 @@
             <%= f.text_field :distributor, class: 'form-control' %>
           </div>
           
-           <div class="mb-3">
+           <div class="mb-1">
             <%= f.label :platform, 'プラットフォーム' %>
-            <%= f.text_field :platform, class: 'form-control' %>
-          </div>
-          
+            </div>
+            <div class="mb-3">
+             <%= f.select :platform, [["SP", "SP"],["PC", "PC"],[ "Switch", "Switch"],["XBOX", "XBOX"],["PS4", "PS4"]], class: 'form-control' %>
+            </div>
+            
            <div class="mb-3">
             <%= f.label :releasedate, '発売日' %>
-            <%= f.text_field :releasedate, class: 'form-control' %>
+            <%=  f.text_field :releasedate, class: 'form-control' %>
           </div>
           
            <div class="mb-3">
             <%= f.label :playdate, 'プレイした日' %>
-            <%= f.text_field :playdate, class: 'form-control' %>
+            <%= f.text_field :playdate, class: 'form-control'%>
           </div>
           
            <div class="mb-3">
             <%= f.label :registrationdate, '登録日' %>
-            <%= f.text_field :registrationdate, class: 'form-control' %>
+            <%= f.text_field :registrationdate, class: 'form-control'%>
           </div>
           
           <div class="mb-3">
             <%= f.label :updatedate, '更新日' %>
-            <%= f.text_field :updatedate, class: 'form-control' %>
+            <%= f.text_field :updatedate, class: 'form-control'%>
           </div>
           
             <%= f.submit "投稿", class: "btn btn-primary" %>
@@ -52,5 +54,5 @@
                 
       </div>
    </div>
-</div>
+</div> 
 

@@ -1,25 +1,25 @@
 class GamepostsController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
-  before_action :correct_user, only: [:destroy, :update, :show, :edit]
+  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def index
      @pagy, @gameposts = pagy(Gamepost.order(id: :desc), items: 25)
-   @user = current_user
+   
   end
   
   def show
     @gamepost = Gamepost.find(params[:id])
-   @user = current_user
+  
   end
   
   def new
     @gamepost = Gamepost.new
-   @user = current_user
+   
   end
   
   def edit
-    @gamepost = Gamepost.find(params[:id])
-    @user = current_user
+   @gamepost = Gamepost.find(params[:id])
+   
   end
   
   def create
@@ -38,10 +38,10 @@ class GamepostsController < ApplicationController
   def update
      @gamepost = Gamepost.find(params[:id])
     if @gamepost.update(gamepost_params)
-      flash[:success] = 'Message は正常に更新されました'
-      redirect_to @gamepost
+      flash[:success] = '投稿が更新されました'
+      redirect_to gameposts_path(@gamepost)
     else
-      flash.now[:danger] = 'Message は更新されませんでした'
+      flash.now[:danger] = '投稿が更新されませんでした'
       render :edit
     end
   end
@@ -62,7 +62,7 @@ class GamepostsController < ApplicationController
   def correct_user
     @gamepost = current_user.gameposts.find_by(id: params[:id])
     unless @gamepost
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 end

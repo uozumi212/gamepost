@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new
     
   end
+  
+  
 
   def create
      @user = User.new(user_params)
@@ -29,7 +31,10 @@ class UsersController < ApplicationController
     end
   end
   
+   
+  
   private
+  
   def signup(email, password)
     @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
