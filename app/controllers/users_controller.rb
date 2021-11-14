@@ -35,16 +35,7 @@ class UsersController < ApplicationController
   
   private
   
-  def signup(email, password)
-    @user = User.find_by(email: email)
-    if @user && @user.authenticate(password)
-      session[:user_id] = @user.id
-      return true
-    else
-      
-      return false
-    end
-  end
+  
   
   def gamepost_params
     params.require(:gamepost).permit(:title, :developer, :distributor, :platform, :releasedate, :playdate, :registrationdate, :updatedate)
