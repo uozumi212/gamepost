@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
-   
+    @user = current_user
   end
 
   def show

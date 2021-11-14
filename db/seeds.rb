@@ -1,1 +1,3 @@
-Gamepost.create(developer: "開発元", distributor: "販売元")
+
+Developer.create(content: "CAPCOM")
+Distributor.create(content: "KONAMI")

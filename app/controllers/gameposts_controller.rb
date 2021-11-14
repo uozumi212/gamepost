@@ -1,6 +1,6 @@
 class GamepostsController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
-  before_action :correct_user, only: [:destroy, :edit, :update]
+  before_action :correct_user, only: [:destroy]
 
   def index
      @pagy, @gameposts = pagy(Gamepost.order(id: :desc), items: 25)
