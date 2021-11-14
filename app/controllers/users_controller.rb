@@ -3,25 +3,25 @@ class UsersController < ApplicationController
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
-   
+   @user = current_user
   end
 
   def show
     @user = User.find(params[:id])
     @pagy, @gameposts = pagy(@user.gameposts.order(id: :desc))
-   
+  
   end
 
   def new
     @user = User.new
-    
+   
   end
   
   
 
   def create
      @user = User.new(user_params)
-      @user = current_user
+      
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
       redirect_to @user
